@@ -112,20 +112,22 @@ func createGoFiles(name string) {
 	}
 	fmt.Println("Writing to main.go file...")
 	_, err = file.WriteString(fmt.Sprintf(`package main
-    import (
-      rl "github.com/gen2brain/raylib-go/raylib"
-    )
-    func main() {
-      rl.InitWindow(400, 400, "%s")
-      rl.SetTargetFPS(60)
-      for !rl.WindowShouldClose() {
-        rl.BeginDrawing()
-        rl.ClearBackground(rl.RayWhite)
-        rl.DrawText("Hello, world!", 12, 12, 20, rl.Maroon)
-        rl.EndDrawing()
-      }
-      rl.CloseWindow()
-    }
+
+import (
+  rl "github.com/gen2brain/raylib-go/raylib"
+)
+
+func main() {
+  rl.InitWindow(400, 400, "%s")
+  rl.SetTargetFPS(60)
+  for !rl.WindowShouldClose() {
+    rl.BeginDrawing()
+    rl.ClearBackground(rl.RayWhite)
+    rl.DrawText("Hello, world!", 12, 12, 20, rl.Maroon)
+    rl.EndDrawing()
+  }
+  rl.CloseWindow()
+}
     `, name))
 	if err != nil {
 		fmt.Println("Error writing to main.go file")
