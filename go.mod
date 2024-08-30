@@ -1,4 +1,4 @@
-module raylib-gen
+module github.com/playground-vinibispo/raylib-gen
 
 go 1.22.1
 
