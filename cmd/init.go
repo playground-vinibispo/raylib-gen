@@ -86,7 +86,6 @@ func updateAirConfig() {
 	re := regexp.MustCompile(`cmd = ".*"`)
 	newCmdValue := "go build -o ./tmp/main cmd/**/main.go"
 	newContent := re.ReplaceAllString(content, fmt.Sprintf(`cmd = "%s"`, newCmdValue))
-	fmt.Println("New content")
 	file, err := os.OpenFile(".air.toml", os.O_RDWR|os.O_CREATE|os.O_TRUNC, 0755)
 	if err != nil {
 		fmt.Println("Error opening .air.toml file")
